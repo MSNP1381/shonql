@@ -1,5 +1,8 @@
-tools = [
-    [
+{
+    "id": 6,
+    "query": "Identify the ID of 'Pulp Fiction' and search for torrents related to it.",
+    "answers": '[{"name": "get_id", "arguments": {"q": "Pulp Fiction"}}, {"name": "search_torrents", "arguments": {"keywords": "Pulp Fiction", "quantity": 10}}]',
+    "tools": [
         {
             "name": "get_id",
             "description": "Fetches the ID of a movie based on the given search query from the RapidAPI similar movies service.",
@@ -43,5 +46,5 @@ tools = [
                 }
             },
         },
-    ]
-]
+    ],
+}
