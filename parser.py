@@ -94,9 +94,9 @@ def parse(code):
     # Print the extracted function calls from the AST.
     extracted = extract_function_calls_from_ast(tree.ast)
     # print(tree.ast)
-    print("Extracted function calls from AST:")
+    # print("Extracted function calls from AST:")
     json_obj=json.dumps(extracted, indent=4)
-    print(json_obj)
+    # print(json_obj)
 
     return json.loads(json_obj)
 
