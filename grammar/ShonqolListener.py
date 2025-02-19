@@ -97,8 +97,9 @@ class ShonqolListener(ParseTreeListener):
         pass
 
     def exitArguments(self, ctx: ShonqolParser.ArgumentsContext):
-        values = [expr.value for expr in ctx.expression()]
-        asts = [expr.ast for expr in ctx.expression()]
+
+        values = [expr.expression().value for expr in ctx.argument()]
+        asts = [expr.expression().ast for expr in ctx.argument()]
         ctx.value = values
         ctx.ast = {
             "type": "Arguments",
