@@ -1,9 +1,12 @@
 # Modified ShonqolListener.py with evaluation and AST building.
+from os import name
 from antlr4 import *
+
 if "." in __name__:
     from .ShonqolParser import ShonqolParser
 else:
     from ShonqolParser import ShonqolParser
+
 
 class ShonqolListener(ParseTreeListener):
     def __init__(self):
@@ -18,7 +21,7 @@ class ShonqolListener(ParseTreeListener):
         # Build AST for the program by collecting the AST of all statements.
         ctx.ast = {
             "type": "Program",
-            "statements": [stmt.ast for stmt in ctx.statement()]
+            "statements": [stmt.ast for stmt in ctx.statement()],
         }
         ctx.value = self.env  # Attach the final environment
 
@@ -43,7 +46,7 @@ class ShonqolListener(ParseTreeListener):
         ctx.ast = {
             "type": "Assignment",
             "var_name": var_name,
-            "expression": ctx.expression().ast
+            "expression": ctx.expression().ast,
         }
 
     # --- Expression ---
@@ -62,10 +65,7 @@ class ShonqolListener(ParseTreeListener):
             identifier = ctx.Identifier().getText()
             # For evaluation, look up the identifier in the environment.
             ctx.value = self.env.get(identifier, None)
-            ctx.ast = {
-                "type": "Identifier",
-                "name": identifier
-            }
+            ctx.ast = {"type": "Identifier", "name": identifier}
 
     # --- Function Call ---
     def enterFunctionCall(self, ctx: ShonqolParser.FunctionCallContext):
@@ -89,7 +89,7 @@ class ShonqolListener(ParseTreeListener):
         ctx.ast = {
             "type": "FunctionCall",
             "func_name": func_name,
-            "arguments": args_ast
+            "arguments": args_ast,
         }
 
     # --- Arguments ---
@@ -97,14 +97,10 @@ class ShonqolListener(ParseTreeListener):
         pass
 
     def exitArguments(self, ctx: ShonqolParser.ArgumentsContext):
-
-        values = [expr.expression().value for expr in ctx.argument()]
-        asts = [expr.expression().ast for expr in ctx.argument()]
+        values = [arg.expression().value for arg in ctx.argument()]
+        asts = [arg.expression().ast for arg in ctx.argument()]
         ctx.value = values
-        ctx.ast = {
-            "type": "Arguments",
-            "expressions": asts
-        }
+        ctx.ast = {"type": "Arguments", "expressions": asts}
 
     # --- Literal ---
     def enterLiteral(self, ctx: ShonqolParser.LiteralContext):
@@ -113,24 +109,23 @@ class ShonqolListener(ParseTreeListener):
     def exitLiteral(self, ctx: ShonqolParser.LiteralContext):
         if ctx.NUMBER():
             num_text = ctx.NUMBER().getText()
-            if '.' in num_text:
+            if "." in num_text:
                 val = float(num_text)
             else:
                 val = int(num_text)
             ctx.value = val
-            ctx.ast = {
-                "type": "Literal",
-                "value": val
-            }
+            ctx.ast = {"type": "Literal", "value": val}
         elif ctx.STRING():
             text = ctx.STRING().getText()[1:-1]  # remove quotes
             ctx.value = text
-            ctx.ast = {
-                "type": "Literal",
-                "value": text
-            }
+            ctx.ast = {"type": "Literal", "value": text}
+        elif ctx.array():
+            arr = ctx.array().getText()
+            ctx.value = arr
+            ctx.ast = {"type": "Literal", "value": arr}
         else:
             ctx.value = None
             ctx.ast = {"type": "Literal", "value": None}
+
 
 del ShonqolParser
