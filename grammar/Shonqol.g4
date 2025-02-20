@@ -21,14 +21,14 @@ functionCall: Identifier '(' arguments? ')';
 // A comma-separated list of expressions.
 arguments: argument (',' argument)*;
 //ignore the argument rule for now like call(page=50) to call(50)
-argument: (Identifier '=' )? expression;
+argument: (Identifier '=')? expression;
 
 // Literals: numbers or strings.
 
 // Lexer rules
 Identifier: [a-zA-Z_][a-zA-Z0-9_]*;
 
-literal: STRING | NUMBER | array;
+literal: NUMBER | STRING | array;
 
 STRING: '"' (~["\r\n])* '"' | '\'' (~['\r\n])* '\'';
 NUMBER: [+-]? [0-9]+ ('.' [0-9]+)?;
@@ -39,3 +39,6 @@ array: '[' (literal (',' literal)*)? ']';
 
 // Skip whitespace.
 WS: [ \t\r\n]+ -> skip;
+
+// Comments
+COMMENT: '//' ~[\r\n]* -> skip;

@@ -39,8 +39,18 @@ class ShonqolVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by ShonqolParser#argument.
+    def visitArgument(self, ctx:ShonqolParser.ArgumentContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by ShonqolParser#literal.
     def visitLiteral(self, ctx:ShonqolParser.LiteralContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ShonqolParser#array.
+    def visitArray(self, ctx:ShonqolParser.ArrayContext):
         return self.visitChildren(ctx)
 
 
