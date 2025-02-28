@@ -54,15 +54,5 @@ class ShonqolVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ShonqolParser#dictionary.
-    def visitDictionary(self, ctx:ShonqolParser.DictionaryContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by ShonqolParser#keyValuePair.
-    def visitKeyValuePair(self, ctx:ShonqolParser.KeyValuePairContext):
-        return self.visitChildren(ctx)
-
-
 
 del ShonqolParser

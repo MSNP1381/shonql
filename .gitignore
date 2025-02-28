@@ -173,4 +173,7 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 *.json
+
 antlr-4.13.2-complete.jar
+
+brekeley/shonqol_results.rar

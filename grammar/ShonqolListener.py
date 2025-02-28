@@ -123,6 +123,11 @@ class ShonqolListener(ParseTreeListener):
             arr = ctx.array().getText()
             ctx.value = arr
             ctx.ast = {"type": "Literal", "value": arr}
+        elif ctx.dictionary():
+            dic = ctx.dictionary().getText()
+            ctx.value = dic
+            ctx.ast = {"type": "Literal", "value": dic}
+        
         else:
             ctx.value = None
             ctx.ast = {"type": "Literal", "value": None}

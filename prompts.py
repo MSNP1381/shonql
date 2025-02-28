@@ -24,28 +24,28 @@ user_feed(123456789, "150000000000000").max_id;
 #### Key Features of Shonqol
 
 1. **Variable Assignment**: Assign values to variables using `=`.  
-   Example:  
+Example:  
 
-   ```shonqol
-   x = 42;
-   name = "John";
-   ```
+```shonqol
+x = 42;
+name = "John";
+```
 
 2. **Function Calls**: Call functions to retrieve or compute values, and store the results in variables.  
-   Example:  
+Example:  
 
-   ```shonqol
-   result = add(5, 3);
-   greeting = makeGreeting("John");
-   ```
+```shonqol
+result = add(5, 3);
+greeting = makeGreeting("John");
+```
 
 3. **String Manipulation**: Concatenate strings or format custom messages.  
-   Example:  
+Example:  
 
-   ```shonqol
-   fullName = concat(firstName, concat(" ", lastName));
-   greeting = makeGreeting(fullName);
-   ```
+```shonqol
+fullName = concat(firstName, concat(" ", lastName));
+greeting = makeGreeting(fullName);
+```
 
 ### Tools definition
 > these are functions that are present in the shonqol language that you can use them
@@ -66,240 +66,240 @@ Below are examples of Shonqol code for various scenarios:
 
 1. **Simple Variable Assignment**:
 
-   ```shonqol
-   x = 42;
-   name = "John";
-   ```
+```shonqol
+x = 42;
+name = "John";
+```
 
 2. **Basic Function Calls and Storing Results**:
 
-   ```shonqol
-   result = add(5, 3);
-   greeting = makeGreeting("John");
-   print(greeting);
-   ```
+```shonqol
+result = add(5, 3);
+greeting = makeGreeting("John");
+print(greeting);
+```
 
 3. **Using Function Results in Other Functions**:
 
-   ```shonqol
-   num1 = getValue();
-   doubled = multiply(num1, 2);
-   result = add(doubled, 5);
-   print(result);
-   ```
+```shonqol
+num1 = getValue();
+doubled = multiply(num1, 2);
+result = add(doubled, 5);
+print(result);
+```
 
 4. **Nested Function Calls Without Intermediate Variables**:
 
-   ```shonqol
-   result = add(
-       multiply(getValue(), 2),
-       subtract(10, 5)
-   );
-   print(result);
+```shonqol
+result = add(
+    multiply(getValue(), 2),
+    subtract(10, 5)
+);
+print(result);
 
-   message = concat(
-       makeGreeting(getName()),
-       "! How are you?"
-   );
-   ```
+message = concat(
+    makeGreeting(getName()),
+    "! How are you?"
+);
+```
 
 5. **Complex Composition of Functions and Variables**:
 
-   ```shonqol
-   firstName = getName();
-   lastName = getLastName();
-   age = getAge();
+```shonqol
+firstName = getName();
+lastName = getLastName();
+age = getAge();
 
-   fullName = concat(firstName, concat(" ", lastName));
-   greeting = makeGreeting(fullName);
+fullName = concat(firstName, concat(" ", lastName));
+greeting = makeGreeting(fullName);
 
-   isAdult = greaterThan(age, 18);
-   message = conditionalSelect(
-       isAdult,
-       concat(greeting, " Welcome to the adult section!"),
-       concat(greeting, " Sorry, adults only.")
-   );
+isAdult = greaterThan(age, 18);
+message = conditionalSelect(
+    isAdult,
+    concat(greeting, " Welcome to the adult section!"),
+    concat(greeting, " Sorry, adults only.")
+);
 
-   print(message);
-   ```
+print(message);
+```
 6. **Array creation and access (assuming array access is possible through a function)**:
 
-   ```shonqol
-   myArray = [1, 2, 3, 4, 5];
-   firstElement = getElement(myArray, 0);
-   print(firstElement);
-   ```
+```shonqol
+myArray = [1, 2, 3, 4, 5];
+firstElement = getElement(myArray, 0);
+print(firstElement);
+```
 
 7. **String concatenation with numbers**:
 
-   ```shonqol
-   age = 30;
-   message = concat("You are ", concat(age, " years old."));
-   print(message);
-   ```
+```shonqol
+age = 30;
+message = concat("You are ", concat(age, " years old."));
+print(message);
+```
 
 8. **Simple conditional logic (assuming conditionalPrint exists)**:
 
-   ```shonqol
-   isRaining = true;
-   conditionalPrint(isRaining, "It is raining.", "It is not raining.");
-   ```
+```shonqol
+isRaining = true;
+conditionalPrint(isRaining, "It is raining.", "It is not raining.");
+```
 
 9. **More complex array manipulation (assuming arrayLength and arraySum exist)**:
 
-   ```shonqol
-   numbers = [10, 20, 30, 40];
-   count = arrayLength(numbers);
-   sum = arraySum(numbers);
-   average = divide(sum, count);
-   print(average);
-   ```
+```shonqol
+numbers = [10, 20, 30, 40];
+count = arrayLength(numbers);
+sum = arraySum(numbers);
+average = divide(sum, count);
+print(average);
+```
 
 10. **Combining string manipulation, conditionals, and function calls**:
 
-    ```shonqol
-    username = getUserName();
-    isPremium = checkPremium(username);
-    greeting = concat("Hello, ", username);
-    message = conditionalSelect(isPremium, concat(greeting, "! You have premium access."), concat(greeting, "! Welcome!"));
-    print(message);
-    ```
+```shonqol
+username = getUserName();
+isPremium = checkPremium(username);
+greeting = concat("Hello, ", username);
+message = conditionalSelect(isPremium, concat(greeting, "! You have premium access."), concat(greeting, "! Welcome!"));
+print(message);
+```
 
 11. **Using nested concat functions**:
 
-    ```shonqol
-    firstName = "John";
-    lastName = "Doe";
-    fullName = concat(concat(firstName, " "), lastName);
-    print(fullName);
-    ```
+```shonqol
+firstName = "John";
+lastName = "Doe";
+fullName = concat(concat(firstName, " "), lastName);
+print(fullName);
+```
 
 12. **Working with boolean values**:
 
-    ```shonqol
-    isAvailable = true;
-    statusMessage = conditionalSelect(isAvailable, "Available", "Not Available");
-    print(statusMessage);
-    ```
+```shonqol
+isAvailable = true;
+statusMessage = conditionalSelect(isAvailable, "Available", "Not Available");
+print(statusMessage);
+```
 
 13. **Performing arithmetic operations**:
 
-    ```shonqol
-    x = 10;
-    y = 5;
-    sum = add(x, y);
-    difference = subtract(x, y);
-    product = multiply(x, y);
-    quotient = divide(x, y);
-    print(sum);
-    print(difference);
-    print(product);
-    print(quotient);
-    ```
+```shonqol
+x = 10;
+y = 5;
+sum = add(x, y);
+difference = subtract(x, y);
+product = multiply(x, y);
+quotient = divide(x, y);
+print(sum);
+print(difference);
+print(product);
+print(quotient);
+```
 
 14. **Using a function to get the current date**:
 
-    ```shonqol
-    currentDate = getCurrentDate();
-    print(currentDate);
-    ```
+```shonqol
+currentDate = getCurrentDate();
+print(currentDate);
+```
 
 15. **Combining multiple functions to format an address**:
 
-    ```shonqol
-    street = getStreet();
-    city = getCity();
-    zipCode = getZipCode();
-    fullAddress = concat(concat(street, ", "), concat(city, concat(", ", zipCode)));
-    print(fullAddress);
-    ```
+```shonqol
+street = getStreet();
+city = getCity();
+zipCode = getZipCode();
+fullAddress = concat(concat(street, ", "), concat(city, concat(", ", zipCode)));
+print(fullAddress);
+```
 
 16. **Array of strings**:
 
-    ```shonqol
-    names = ["Alice", "Bob", "Charlie"];
-    print(names);
-    ```
+```shonqol
+names = ["Alice", "Bob", "Charlie"];
+print(names);
+```
 
 17. **Using array length and accessing elements**:
 
-    ```shonqol
-    items = [100, 200, 300];
-    length = arrayLength(items);
-    firstItem = getElement(items, 0);
-    print(length);
-    print(firstItem);
-    ```
+```shonqol
+items = [100, 200, 300];
+length = arrayLength(items);
+firstItem = getElement(items, 0);
+print(length);
+print(firstItem);
+```
 
 18. **Simple if-else logic**:
 
-    ```shonqol
-    age = 20;
-    status = conditionalSelect(greaterThan(age, 18), "Adult", "Minor");
-    print(status);
-    ```
+```shonqol
+age = 20;
+status = conditionalSelect(greaterThan(age, 18), "Adult", "Minor");
+print(status);
+```
 
 19. **Complex string formatting**:
 
-    ```shonqol
-    productName = "Laptop";
-    price = 1200;
-    formattedString = concat("The price of ", concat(productName, concat(" is $", price)));
-    print(formattedString);
-    ```
+```shonqol
+productName = "Laptop";
+price = 1200;
+formattedString = concat("The price of ", concat(productName, concat(" is $", price)));
+print(formattedString);
+```
 
 20. **Nested conditionals**:
 
-    ```shonqol
-    temperature = 25;
-    weather = conditionalSelect(greaterThan(temperature, 30), "Hot", conditionalSelect(lessThan(temperature, 10), "Cold", "Moderate"));
-    print(weather);
-    ```
+```shonqol
+temperature = 25;
+weather = conditionalSelect(greaterThan(temperature, 30), "Hot", conditionalSelect(lessThan(temperature, 10), "Cold", "Moderate"));
+print(weather);
+```
 
 21. **Using math functions**:
 
-    ```shonqol
-    radius = 5;
-    area = multiply(3.14, multiply(radius, radius));
-    print(area);
-    ```
+```shonqol
+radius = 5;
+area = multiply(3.14, multiply(radius, radius));
+print(area);
+```
 
 22. **Getting user input (assuming a getUserInput function exists)**:
 
-    ```shonqol
-    name = getUserInput("Enter your name:");
-    print(concat("Hello, ", name));
-    ```
+```shonqol
+name = getUserInput("Enter your name:");
+print(concat("Hello, ", name));
+```
 
 23. **Working with dates (assuming date formatting functions exist)**:
 
-    ```shonqol
-    date = getCurrentDate();
-    formattedDate = formatDate(date, "YYYY-MM-DD");
-    print(formattedDate);
-    ```
+```shonqol
+date = getCurrentDate();
+formattedDate = formatDate(date, "YYYY-MM-DD");
+print(formattedDate);
+```
 
 24. **Combining array operations and conditionals**:
 
-    ```shonqol
-    numbers = [1, 2, 3, 4, 5];
-    hasEven = arrayContainsEven(numbers);
-    message = conditionalSelect(hasEven, "Array contains even numbers", "Array does not contain even numbers");
-    print(message);
-    ```
+```shonqol
+numbers = [1, 2, 3, 4, 5];
+hasEven = arrayContainsEven(numbers);
+message = conditionalSelect(hasEven, "Array contains even numbers", "Array does not contain even numbers");
+print(message);
+```
 
 25. **Simple calculator**:
 
-    ```shonqol
-    num1 = 10;
-    num2 = 2;
-    operation = "add";
-    result = conditionalSelect(equals(operation, "add"), add(num1, num2),
-                            conditionalSelect(equals(operation, "subtract"), subtract(num1, num2),
-                                              conditionalSelect(equals(operation, "multiply"), multiply(num1, num2),
-                                                                divide(num1, num2))));
-    print(result);
-    ```
+```shonqol
+num1 = 10;
+num2 = 2;
+operation = "add";
+result = conditionalSelect(equals(operation, "add"), add(num1, num2),
+                        conditionalSelect(equals(operation, "subtract"), subtract(num1, num2),
+                                            conditionalSelect(equals(operation, "multiply"), multiply(num1, num2),
+                                                            divide(num1, num2))));
+print(result);
+```
 
 #### Instructions
 
