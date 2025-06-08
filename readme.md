@@ -195,9 +195,6 @@ When contributing to Shonqol:
 3. Update examples and tests
 4. Ensure compatibility with both Python and Java targets
 
-## License
-
-[Add your license information here]
 
 ## Development Status
 
